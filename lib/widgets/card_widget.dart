@@ -1,4 +1,8 @@
+import 'dart:math';
+import 'dart:io' as io;
+import 'package:card/screens/cubit/card_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CardWidget extends StatelessWidget {
   const CardWidget({Key? key}) : super(key: key);
@@ -23,7 +27,9 @@ class CardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage('https://source.unsplash.com/random'),
+            image: context.watch<CardCubit>().image != null ?
+            FileImage(io.File(context.watch<CardCubit>().image!.path)) as ImageProvider:
+            AssetImage("assets/cardimages/${CardCubit.imageList[Random().nextInt(6)]}")
           ),
           boxShadow: [
             BoxShadow(

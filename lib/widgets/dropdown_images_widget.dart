@@ -17,7 +17,7 @@ class DropdownImageWidget extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: SizedBox(
-            height: context.h * 0.5,
+            height: context.h * 0.3,
             child: GridView.builder(
               itemCount: CardCubit.imageList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
