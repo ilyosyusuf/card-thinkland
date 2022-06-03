@@ -26,14 +26,22 @@ class DropdownImageWidget extends StatelessWidget {
                 mainAxisSpacing: 10.0,
               ),
               itemBuilder: (context, index) {
-                return Container(
-                  width: 50,
-                  height: 50,
-                  child: Image.asset(
-                    'assets/cardimages/${CardCubit.imageList[index]}',
-                    fit: BoxFit.cover,
+                return (SizedBox(
+                  width: context.w * 0.4,
+                  height: context.h * 0.4,
+                  child: Draggable(
+                    data: 'assets/cardimages/${CardCubit.imageList[index]}',
+                    child: Image.asset(
+                      'assets/cardimages/${CardCubit.imageList[index]}',
+                      fit: BoxFit.cover,
+                    ),
+                    feedback: Image.asset(
+                      'assets/cardimages/${CardCubit.imageList[index]}',
+                      fit: BoxFit.cover,
+                      width: context.w * 0.4,
+                    ),
                   ),
-                );
+                ));
               },
             ),
           ),

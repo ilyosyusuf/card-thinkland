@@ -30,6 +30,7 @@ class CardPage extends StatelessWidget {
                     children: [
                       SizedBox(height: context.h * 0.02),
                       CardWidget(),
+                      SizedBox(height: context.h * 0.02),
                       DropdownImageWidget(),
                       DropdownColorWidget(),
                       ElevatedButton(

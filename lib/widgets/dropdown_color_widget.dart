@@ -1,6 +1,7 @@
 import 'package:card/core/extensions/context_extension.dart';
 import 'package:card/screens/cubit/card_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 class DropdownColorWidget extends StatelessWidget {
@@ -20,9 +21,11 @@ class DropdownColorWidget extends StatelessWidget {
           child: SizedBox(
             height: context.h * 0.6,
             child: ColorPicker(
-              pickerColor: Colors.white,
+              pickerColor: context.watch<CardCubit>().colorConst,
               colorPickerWidth: context.w * 0.7,
-              onColorChanged: (Color color){},
+              onColorChanged: (Color color){  
+                context.read<CardCubit>().changeColor(color: color);
+              },
             )
           ),
         ),
