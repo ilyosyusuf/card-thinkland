@@ -34,10 +34,17 @@ class CardPage extends StatelessWidget {
                       DropdownImageWidget(),
                       DropdownColorWidget(),
                       ElevatedButton(
-                        onPressed: (){
-                          context.read<CardCubit>().fromGallery();
-                      }, child: Text("Image from gallery")
-                      )
+                          onPressed: () {
+                            context.read<CardCubit>().fromGallery();
+                          },
+                          child: Text("Image from gallery")),
+                      Slider(
+                        max: 3.0,
+                        value: context.watch<CardCubit>().blur,
+                        onChanged: (data) {
+                          context.read<CardCubit>().changeBLur(data: data);
+                        },
+                      ),
                     ],
                   ),
                 ),
