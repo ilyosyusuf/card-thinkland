@@ -45,6 +45,9 @@ class CardPage extends StatelessWidget {
                           context.read<CardCubit>().changeBLur(data: data);
                         },
                       ),
+                      ElevatedButton(onPressed: (){
+                        context.read<CardCubit>().saveData();
+                      }, child: Text("Save"))
                     ],
                   ),
                 ),

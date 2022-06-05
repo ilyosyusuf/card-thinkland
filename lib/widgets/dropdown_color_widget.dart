@@ -23,10 +23,10 @@ class DropdownColorWidget extends StatelessWidget {
             child: ColorPicker(
               pickerColor: context.watch<CardCubit>().colorConst,
               colorPickerWidth: context.w * 0.7,
-              onColorChanged: (Color color){  
+              onColorChanged: (Color color) {
                 context.read<CardCubit>().changeColor(color: color);
               },
-            )
+            ),
           ),
         ),
       ],
